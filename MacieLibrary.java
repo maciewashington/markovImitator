@@ -24,11 +24,11 @@ public class MacieLibrary {
         ArrayList<String> words = new ArrayList<>();
         for (String singleLine : lines) {
             String[] wordsFromLine = singleLine.toLowerCase().split(" ");
-            // for (String w : wordsFromLine) {
-            //     String noPunct = stripMethod(w);
-            //     //noPunct.toLowerCase()
-            //     words.add(noPunct); //noPunct.toLowercase();
-            // }
+            for (String w : wordsFromLine) {
+                //String noPunct = stripMethod(w);
+                //noPunct.toLowerCase()
+                words.add(w); //noPunct.toLowercase();
+            }
         }
         
         return words;

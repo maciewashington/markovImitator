@@ -14,28 +14,21 @@ public class markov {
 
     private static String markov(String filePath, int keySize, int outputSize) throws IOException {
         if (keySize < 1) throw new IllegalArgumentException("Key size can't be less than 1");
-        // List<String> listOfStrings = new ArrayList<String>();
-    
-        // Scanner sc = new Scanner(new FileReader(filePath)).useDelimiter(",\\s*");
-        // String str;
-       
-        // // checking end of file
-        // while (sc.hasNext()) {
-        //     str = sc.next();
-           
-        //     // adding each string to arraylist
-        //     listOfStrings.add(str);
-        // }
-       
-        // convert any arraylist to array
-        // String[] words = listOfStrings.toArray(new String[0]);
-
-
         ArrayList<String> wordList = MacieLibrary.readTheFileToArrayList(DEFAULT_INPUT_FILE);
-        //ArrayList<String> wordList = MacieLibrary.seperateIntoWords(fileReader);
-        String[] words = wordList.toArray(new String[0]);
-        // String[] words = new String[wordList.size()];
-        // words = wordList.toArray(words);
+        
+      // ArrayList<String> wordList = MacieLibrary.seperateIntoWords(fileReader);
+          
+        StringBuffer sb = new StringBuffer();
+      
+        for (String s : wordList) {
+            sb.append(s);
+            sb.append(" ");
+            }
+        //String[] words = wordList.toArray(new String[0]);
+        String word = sb.toString();
+       String[] words = null;  
+         
+        words = word.split(" ");  
     
       
         if (outputSize < keySize || outputSize >= words.length) {
@@ -79,7 +72,22 @@ public class markov {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(markov(DEFAULT_INPUT_FILE, NPREF, MAXGEN));
+       System.out.println(markov(DEFAULT_INPUT_FILE, NPREF, MAXGEN));
+    //       ArrayList<String> wordList = MacieLibrary.readTheFileToArrayList(DEFAULT_INPUT_FILE);
+        
+    //   // ArrayList<String> wordList = MacieLibrary.seperateIntoWords(fileReader);
+    //       System.out.println(wordList);
+
+    // StringBuffer sb = new StringBuffer();
+      
+    //   for (String s : wordList) {
+    //      sb.append(s);
+    //      sb.append(" ");
+    //   }
+    //     //String[] words = wordList.toArray(new String[0]);
+    //       String words = sb.toString();
+     
+    //    System.out.println(words);
     }
 }
 
